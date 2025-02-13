@@ -85,7 +85,7 @@ def extract_phones(text):
     
     return {
         'fijos': fijos if fijos else ['Sin datos por el momento'],
-        'moviles': moviles si moviles else ['Sin datos por el momento']
+        'moviles': moviles if moviles else ['Sin datos por el momento']
     }
 
 def get_business_details(place_id, gmaps):
@@ -119,7 +119,7 @@ def get_business_details(place_id, gmaps):
             'codigo_postal': result.get('postal_code', 'Sin datos por el momento'),
             'telefono_fijo': ', '.join(phones['fijos']),
             'telefono_movil': ', '.join(phones['moviles']),
-            'email': ', '.join(emails) si emails else 'Sin datos por el momento',
+            'email': ', '.join(emails) if emails else 'Sin datos por el momento',
             'facebook': social_media['facebook'] or 'Sin datos por el momento',
             'instagram': social_media['instagram'] or 'Sin datos por el momento',
             'linkedin': social_media['linkedin'] or 'Sin datos por el momento',
