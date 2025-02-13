@@ -93,8 +93,7 @@ def get_business_details(place_id, gmaps):
     try:
         details = gmaps.place(place_id,
             fields=['name', 'formatted_address', 'website', 
-                   'formatted_phone_number', 'rating', 'reviews',
-                   'postal_code'])
+                    'formatted_phone_number', 'rating', 'reviews'])
         
         result = details.get('result', {})
         
@@ -116,7 +115,6 @@ def get_business_details(place_id, gmaps):
             'nombre': result.get('name', 'Sin datos por el momento'),
             'direccion': result.get('formatted_address', 'Sin datos por el momento'),
             'website': result.get('website', 'Sin datos por el momento'),
-            'codigo_postal': result.get('postal_code', 'Sin datos por el momento'),
             'telefono_fijo': ', '.join(phones['fijos']),
             'telefono_movil': ', '.join(phones['moviles']),
             'email': ', '.join(emails) if emails else 'Sin datos por el momento',
